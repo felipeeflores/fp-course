@@ -85,7 +85,6 @@ instance Functor ((->) t) where
     -> ((->) t b)
   (<$>) =  (.)
 
-
 -- | Anonymous map. Maps a constant value on a functor.
 --
 -- >>> 7 <$ (1 :. 2 :. 3 :. Nil)
@@ -99,8 +98,7 @@ instance Functor ((->) t) where
   a
   -> f b
   -> f a
-(<$) a func = (<$>) (\_ -> a) func
-
+(<$) a func = (<$>) (const a) func
 
 -- | Anonymous map producing unit value.
 --
